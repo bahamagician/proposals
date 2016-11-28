@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Proposal;
 
 class ProposalController extends Controller
 {
@@ -13,7 +14,9 @@ class ProposalController extends Controller
      */
     public function index()
     {
-        return view('Proposals.home');
+        $proposals = Proposal::where('user_id', 1)->get();
+//        $proposals = Proposal::all();
+        return view('Proposals.home', compact('proposals'));
     }
 
     /**
