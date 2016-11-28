@@ -2,6 +2,10 @@
 
 use Illuminate\Database\Seeder;
 
+use App\User;
+use App\Proposal;
+use App\Page;
+
 class DatabaseSeeder extends Seeder
 {
     protected $toTruncate = ['users', 'proposals', 'pages'];
@@ -17,11 +21,11 @@ class DatabaseSeeder extends Seeder
             DB::table($table)->truncate();
         }
 
-        factory(App\User::class, 20)->create()->each(
+        factory(User::class, 20)->create()->each(
             function($user) {
-                factory(App\Proposal::class, 5)->create(['user_id' => $user->id])->each(
+                factory(Proposal::class, 5)->create(['user_id' => $user->id])->each(
                     function ($proposal) {
-                        factory(App\Page::class, 10)->create(['proposal_id' => $proposal->id]);
+                        factory(Page::class, 10)->create(['proposal_id' => $proposal->id]);
                     }
                 );
             }
