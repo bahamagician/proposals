@@ -13,7 +13,15 @@ require('laravel-elixir-vue-2');
  |
  */
 
+var paths = {
+  'jQuery': '../../../node_modules/jquery/dist/jquery.js'
+};
+
 elixir((mix) => {
-    mix.sass('app.scss')
-       .webpack('app.js');
+    mix
+
+    .sass('app.scss')
+       .webpack('app.js')
+
+    .scripts([paths.jQuery], 'public/js/vendor.js');
 });

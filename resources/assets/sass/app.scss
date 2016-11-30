@@ -1,7 +1,45 @@
-@import "node_modules/foundation-sites/assets/foundation";
-
 @import "settings";
+@import "node_modules/foundation-sites/assets/foundation";
+@import "panels";
 
-body {
+.button-link {
+  background-color: transparent;
+  border-color: transparent;
+  color: $primary-color;
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: $primary-color;
+    text-decoration: underline;
+  }
+}
 
+#app-content-wrapper {
+  padding-top: rem-calc(map-get($grid-column-gutter, medium))/2;
+}
+#dashboard-top-bar {
+  border-top: 5px solid #fbe65b;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+#dashboard-menu {
+  a {
+    color: #fff !important;
+  }
+  .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+    border-color: #fff transparent transparent;
+  }
+}
+
+a.navbar-brand {
+  color: #fff !important;
+  display: inline-block;
+  margin-top: 6px;
+  margin-left: rem-calc(map-get($grid-column-gutter, medium))/2;
+}
+
+
+.form-horizontal {
+  .control-label {
+    padding-top: 7px;
+  }
 }
